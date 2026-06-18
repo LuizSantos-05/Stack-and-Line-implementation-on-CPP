@@ -26,11 +26,13 @@ int main()
              << "1. Adicionar na fila\n"
              << "2. Remover da fila\n"
              << "3. Limpar fila\n"
-             << "4. Imprimir fila\n"
-             << "5. Adicionar na pilha\n"
-             << "6. Remover da pilha\n"
-             << "7. Limpar pilha\n"
-             << "8. Imprimir pilha\n"
+             << "4. Mostrar final da fila\n"
+             << "5. Imprimir fila\n"
+             << "6. Adicionar na pilha\n"
+             << "7. Remover da pilha\n"
+             << "8. Limpar pilha\n"
+             << "9. Mostrar topo da pilha\n"
+             << "10. Imprimir pilha\n"
              << ">> ";
         cin >> opcao;
 
@@ -52,20 +54,26 @@ int main()
                 fila.limparFila();
                 break;
             case 4:
-                fila.imprimirFila();
+                cout << "Final da fila -> " << fila.ultimo() << endl;
                 break;
             case 5:
+                fila.imprimirFila();
+                break;
+            case 6:
                 cout << "Qual valor deseja adicionar?\n>> ";
                 cin >> dado;
                 pilha.inserirPilha(dado);
                 break;
-            case 6:
+            case 7:
                 cout << "Removendo dado -> " << pilha.removerPilha() << endl;
                 break;
-            case 7:
+            case 8:
                 pilha.limparPilha();
                 break;
-            case 8:
+            case 9:
+                cout << "Topo da Pilha -> " << pilha.topoPilha() << endl;
+                break;
+            case 10:
                 pilha.imprimirPilha();
                 break;
         }
