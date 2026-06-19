@@ -6,6 +6,8 @@
 
 using namespace std;
 
+typedef int TIPO;
+
 int main()
 {
     setlocale(LC_ALL, "pt_BR-UTF-8");
@@ -37,8 +39,8 @@ int main()
             break;
     }
 
-    Fila<int> fila(tamFila);
-    Pilha<int> pilha(tamPilha);
+    Fila<TIPO> fila(tamFila);
+    Pilha<TIPO> pilha(tamPilha);
 
     while (true)
     {
