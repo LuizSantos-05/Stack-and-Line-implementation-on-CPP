@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <locale.h>
 #include "Fila.h"
 #include "Pilha.h"
@@ -9,14 +10,36 @@ int main()
 {
     setlocale(LC_ALL, "pt_BR-UTF-8");
     int tamFila, tamPilha;
-    cout << "Digite o tamanho da Fila:\n>> ";
-    cin >> tamFila;
-    cout << "Digite o tamanho da Pilha:\n>> ";
-    cin >> tamPilha;
+
+    while (true)
+    {
+        cout << "Digite o tamanho da Fila:\n>> ";
+        cin >> tamFila;
+        if (tamFila > 100 || tamFila < 1)
+        {
+            cout << "\033[31mErro: Tamanho inválido\033[0m\n";
+            continue;
+        }
+        else
+            break;
+    }
+
+    while (true)
+    {
+        cout << "Digite o tamanho da Pilha:\n>> ";
+        cin >> tamPilha;
+        if (tamPilha > 100 || tamPilha < 1)
+        {
+            cout << "\033[31mErro: Tamanho inválido\033[0m\n";
+            continue;
+        }
+        else
+            break;
+    }
 
     Fila<int> fila(tamFila);
     Pilha<int> pilha(tamPilha);
-    
+
     while (true)
     {
         int opcao;
@@ -38,46 +61,45 @@ int main()
 
         if (opcao == 0)
             break;
-        
+
         int dado;
         switch (opcao)
         {
-            case 1:
-                cout << "Qual valor deseja adicionar?\n>> ";
-                cin >> dado;
-                fila.inserirFila(dado);
-                break;
-            case 2:
-                cout << "Removendo dado -> " << fila.removerFila() << endl;
-                break;
-            case 3:
-                fila.limparFila();
-                break;
-            case 4:
-                cout << "Final da fila -> " << fila.ultimo() << endl;
-                break;
-            case 5:
-                fila.imprimirFila();
-                break;
-            case 6:
-                cout << "Qual valor deseja adicionar?\n>> ";
-                cin >> dado;
-                pilha.inserirPilha(dado);
-                break;
-            case 7:
-                cout << "Removendo dado -> " << pilha.removerPilha() << endl;
-                break;
-            case 8:
-                pilha.limparPilha();
-                break;
-            case 9:
-                cout << "Topo da Pilha -> " << pilha.topoPilha() << endl;
-                break;
-            case 10:
-                pilha.imprimirPilha();
-                break;
+        case 1:
+            cout << "Qual valor deseja adicionar?\n>> ";
+            cin >> dado;
+            fila.inserirFila(dado);
+            break;
+        case 2:
+            cout << "Removendo dado -> " << fila.removerFila() << endl;
+            break;
+        case 3:
+            fila.limparFila();
+            break;
+        case 4:
+            cout << "Final da fila -> " << fila.ultimo() << endl;
+            break;
+        case 5:
+            fila.imprimirFila();
+            break;
+        case 6:
+            cout << "Qual valor deseja adicionar?\n>> ";
+            cin >> dado;
+            pilha.inserirPilha(dado);
+            break;
+        case 7:
+            cout << "Removendo dado -> " << pilha.removerPilha() << endl;
+            break;
+        case 8:
+            pilha.limparPilha();
+            break;
+        case 9:
+            cout << "Topo da Pilha -> " << pilha.topoPilha() << endl;
+            break;
+        case 10:
+            pilha.imprimirPilha();
+            break;
         }
-
     }
     return 0;
 }
